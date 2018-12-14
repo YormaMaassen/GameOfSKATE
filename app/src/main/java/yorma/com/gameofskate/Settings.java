@@ -32,6 +32,7 @@ public class Settings extends AppCompatActivity {
     private int choix;
     private int choixdefault;
     private String errorMesssage;
+    private String blabla = "ojsfoisrpofnzrobgfo^zrgôro^gqfo^dngôdqfngondfkgjbfkdbgkjdfgoizrheoiv ov zoirnfo zor nb";
 
 
     public static int getNb() {
