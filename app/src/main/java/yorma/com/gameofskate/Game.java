@@ -46,7 +46,7 @@ public class Game extends AppCompatActivity {
 
         LettersStr = (TextView) findViewById(R.id.nbLettersStr);
         lastT = (TextView) findViewById(R.id.LastTry);
-        lostPlayers = (TextView) findViewById(R.id.PlayerLost);
+        lostPlayers = (TextView) findViewById(R.id.PlayersLost);
         lastT.setVisibility(View.INVISIBLE);
         playersTurn.setText("Player turn : " + listPlayers.get(0));
         PlayerLandedLastTrick = "";
@@ -61,7 +61,8 @@ public class Game extends AppCompatActivity {
             public void onClick(View view) {
                 if (!offense && (choixLettres == PointsPerPlayer.get(0)+1)){
                     System.out.println("PERDUUUUUUUUUUUUUUUU WALLAH");
-                    lostPlayers.setText(lostPlayers.getText() + listPlayers.get(0));
+                    PlayersLost = PlayersLost + listPlayers.get(0) + ", ";
+                    lostPlayers.setText(PlayersLost);
 
                     listPlayers.remove(0);
                     PointsPerPlayer.remove(0);
