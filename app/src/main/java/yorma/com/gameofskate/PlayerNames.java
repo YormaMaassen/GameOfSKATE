@@ -54,6 +54,8 @@ public class PlayerNames extends AppCompatActivity {
 
         playerNb.setText("Player n°" + current_player);
 
+
+
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

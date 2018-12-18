@@ -651,7 +651,9 @@ id Errortxt
 id FUNCTION
 id LastTry
 id META
+id PlayerLost
 id Playernb
+id PlayersLost
 id Rbtn10
 id Rbtn3
 id Rbtn5
@@ -853,6 +855,7 @@ layout activity_game
 layout activity_home
 layout activity_init_players
 layout activity_main
+layout activity_player_lost
 layout activity_player_names
 layout activity_settings
 layout notification_action

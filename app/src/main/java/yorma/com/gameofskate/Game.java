@@ -1,5 +1,7 @@
 package yorma.com.gameofskate;
 
+import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +21,7 @@ public class Game extends AppCompatActivity {
     int choixLettres = HomeActivity.getChoix();
     boolean offense = true;
     String PlayerLandedLastTrick;
+    String PlayersLost = "Players eliminated : ";
 
     private Button Missed;
     private Button Landed;
@@ -27,6 +30,7 @@ public class Game extends AppCompatActivity {
     private TextView LettersStr;
     private TextView WhatToDO;
     private TextView lastT;
+    private TextView lostPlayers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +46,7 @@ public class Game extends AppCompatActivity {
 
         LettersStr = (TextView) findViewById(R.id.nbLettersStr);
         lastT = (TextView) findViewById(R.id.LastTry);
+        lostPlayers = (TextView) findViewById(R.id.PlayerLost);
         lastT.setVisibility(View.INVISIBLE);
         playersTurn.setText("Player turn : " + listPlayers.get(0));
         PlayerLandedLastTrick = "";
@@ -56,25 +61,53 @@ public class Game extends AppCompatActivity {
             public void onClick(View view) {
                 if (!offense && (choixLettres == PointsPerPlayer.get(0)+1)){
                     System.out.println("PERDUUUUUUUUUUUUUUUU WALLAH");
-                }
-                GoNext(listPlayers, PointsPerPlayer, offense);
-                playersTurn.setText("Player turn : " + listPlayers.get(0));
-                LettersStr.setText("Letters : " + convertIntToLetters(PointsPerPlayer.get(0)));
-                if (PlayerLandedLastTrick == listPlayers.get(0) || PlayerLandedLastTrick == "") {
-                    offense = true;
-                    WhatToDO.setText("Offense, set the trick");
-                    PlayerLandedLastTrick = "";
+                    lostPlayers.setText(lostPlayers.getText() + listPlayers.get(0));
+
+                    listPlayers.remove(0);
+                    PointsPerPlayer.remove(0);
+                    if (listPlayers.size()==1){
+                        System.out.println("Le gagnant est : " + listPlayers.get(0));
+                        playersTurn.setText("Player turn : " + listPlayers.get(0));
+                    }
+                    else {
+                        playersTurn.setText("Player turn : " + listPlayers.get(0));
+                        LettersStr.setText("Letters : " + convertIntToLetters(PointsPerPlayer.get(0)));
+                        System.out.println("Test 1");
+                        if (PlayerLandedLastTrick == listPlayers.get(0) || PlayerLandedLastTrick == "") {
+                            offense = true;
+                            WhatToDO.setText("Offense, set the trick");
+                            PlayerLandedLastTrick = "";
+                        } else {
+                            offense = false;
+                            WhatToDO.setText("Defense, land the trick");
+                        }
+                        if (!offense && (choixLettres == PointsPerPlayer.get(0) + 1)) {
+                            lastT.setVisibility(View.VISIBLE);
+                            System.out.println("Test 2");
+                        } else {
+                            lastT.setVisibility(View.INVISIBLE);
+                            System.out.println("Test 3");
+                        }
+                    }
                 }
                 else {
-                    offense = false;
-                    WhatToDO.setText("Defense, land the trick");
-                }
-                if (!offense && (choixLettres == PointsPerPlayer.get(0)+1)){
-                    System.out.println("PERDUUUUUUUUUUUUUUUU WALLAH 222222222");
-                    lastT.setVisibility(View.VISIBLE);
-                }
-                else {
-                    lastT.setVisibility(View.INVISIBLE);
+                    GoNext(listPlayers, PointsPerPlayer, offense);
+                    playersTurn.setText("Player turn : " + listPlayers.get(0));
+                    LettersStr.setText("Letters : " + convertIntToLetters(PointsPerPlayer.get(0)));
+                    if (PlayerLandedLastTrick == listPlayers.get(0) || PlayerLandedLastTrick == "") {
+                        offense = true;
+                        WhatToDO.setText("Offense, set the trick");
+                        PlayerLandedLastTrick = "";
+                    } else {
+                        offense = false;
+                        WhatToDO.setText("Defense, land the trick");
+                    }
+                    if (!offense && (choixLettres == PointsPerPlayer.get(0) + 1)) {
+                        System.out.println("PERDUUUUUUUUUUUUUUUU WALLAH 222222222");
+                        lastT.setVisibility(View.VISIBLE);
+                    } else {
+                        lastT.setVisibility(View.INVISIBLE);
+                    }
                 }
             }
         });
