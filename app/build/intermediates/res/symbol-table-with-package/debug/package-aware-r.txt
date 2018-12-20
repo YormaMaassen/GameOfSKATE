@@ -734,6 +734,7 @@ id image
 id info
 id invisible
 id italic
+id layout
 id left
 id line1
 id line3
@@ -756,6 +757,7 @@ id parent
 id parentPanel
 id percent
 id playerTurn
+id playerWonName
 id progress_circular
 id progress_horizontal
 id radio
@@ -815,6 +817,7 @@ id uniform
 id up
 id useLogo
 id whatDo
+id winner
 id withText
 id wrap
 id wrap_content
@@ -857,6 +860,7 @@ layout activity_init_players
 layout activity_main
 layout activity_player_lost
 layout activity_player_names
+layout activity_player_won
 layout activity_settings
 layout notification_action
 layout notification_action_tombstone

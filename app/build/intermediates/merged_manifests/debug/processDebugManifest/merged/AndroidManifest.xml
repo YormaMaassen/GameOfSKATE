@@ -31,6 +31,7 @@
         <activity android:name="yorma.com.gameofskate.PlayerNames" />
         <activity android:name="yorma.com.gameofskate.Game" />
         <activity android:name="yorma.com.gameofskate.PlayerLost" />
+        <activity android:name="yorma.com.gameofskate.PlayerWon" />
     </application>
 
 </manifest>

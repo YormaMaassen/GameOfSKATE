@@ -66,13 +66,23 @@ public class Game extends AppCompatActivity {
 
                     listPlayers.remove(0);
                     PointsPerPlayer.remove(0);
+                    playersTurn.setText("Player turn : " + listPlayers.get(0));
+                    LettersStr.setText("Letters : " + convertIntToLetters(PointsPerPlayer.get(0)));
                     if (listPlayers.size()==1){
                         System.out.println("Le gagnant est : " + listPlayers.get(0));
                         playersTurn.setText("Player turn : " + listPlayers.get(0));
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                Intent i = new Intent(Game.this,PlayerLost.class);
+                                startActivity(i);
+                                finish();
+                            }
+
+                        },0);
                     }
                     else {
-                        playersTurn.setText("Player turn : " + listPlayers.get(0));
-                        LettersStr.setText("Letters : " + convertIntToLetters(PointsPerPlayer.get(0)));
+
                         System.out.println("Test 1");
                         if (PlayerLandedLastTrick == listPlayers.get(0) || PlayerLandedLastTrick == "") {
                             offense = true;

@@ -21,7 +21,8 @@
         <activity android:name=".Settings" />
         <activity android:name=".PlayerNames" />
         <activity android:name=".Game" />
-        <activity android:name=".PlayerLost"></activity>
+        <activity android:name=".PlayerLost" />
+        <activity android:name=".PlayerWon"></activity>
     </application>
 
 </manifest>
