@@ -12,10 +12,10 @@ public class PlayerLost extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_player_lost);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_game);
-        System.out.println("OUDZFHOIEZHFOZBEFPOJEZBPIFEZPIIFPZEIBFP");
+        setContentView(R.layout.activity_player_lost);
+        System.out.println("je suis sur la page d'un joueur gagnant pourquoi ça marche pas ? ");
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

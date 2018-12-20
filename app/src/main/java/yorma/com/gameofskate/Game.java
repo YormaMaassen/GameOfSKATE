@@ -23,6 +23,8 @@ public class Game extends AppCompatActivity {
     String PlayerLandedLastTrick;
     String PlayersLost = "Players eliminated : ";
 
+    static String PlayerWon = "";
+
     private Button Missed;
     private Button Landed;
 
@@ -70,16 +72,17 @@ public class Game extends AppCompatActivity {
                     LettersStr.setText("Letters : " + convertIntToLetters(PointsPerPlayer.get(0)));
                     if (listPlayers.size()==1){
                         System.out.println("Le gagnant est : " + listPlayers.get(0));
+                        PlayerWon = listPlayers.get(0);
                         playersTurn.setText("Player turn : " + listPlayers.get(0));
                         new Handler().postDelayed(new Runnable() {
                             @Override
                             public void run() {
-                                Intent i = new Intent(Game.this,PlayerLost.class);
+                                Intent i = new Intent(Game.this,PlayerWon.class);
                                 startActivity(i);
-                                finish();
                             }
 
                         },0);
+                        finish();
                     }
                     else {
 
@@ -256,4 +259,13 @@ public class Game extends AppCompatActivity {
         }
         return res;
     }
+
+    static String getPlayerWon() {
+        return PlayerWon;
+    }
+
+    static void setPlayerWon(String playerWon) {
+        PlayerWon = playerWon;
+    }
+
 }

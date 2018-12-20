@@ -117,7 +117,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:text="Players eliminated : "
-        android:textColor="#00ff00"
+        android:textColor="#ffa200"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
