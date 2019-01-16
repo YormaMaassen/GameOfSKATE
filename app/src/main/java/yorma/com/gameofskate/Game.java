@@ -62,7 +62,6 @@ public class Game extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (!offense && (choixLettres == PointsPerPlayer.get(0)+1)){
-                    System.out.println("PERDUUUUUUUUUUUUUUUU WALLAH");
                     PlayersLost = PlayersLost + listPlayers.get(0) + ", ";
                     lostPlayers.setText(PlayersLost);
 
@@ -74,6 +73,8 @@ public class Game extends AppCompatActivity {
                         System.out.println("Le gagnant est : " + listPlayers.get(0));
                         PlayerWon = listPlayers.get(0);
                         playersTurn.setText("Player turn : " + listPlayers.get(0));
+                        listPlayers.remove(0);
+                        PointsPerPlayer.remove(0);
                         new Handler().postDelayed(new Runnable() {
                             @Override
                             public void run() {
